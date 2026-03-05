@@ -160,7 +160,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 gap-6 xl:grid-cols-5">
             <div className="xl:col-span-3 h-[600px]">
-              <TopParlamentaresChart data={filteredData} />
+              {/* <TopParlamentaresChart data={filteredData} /> */}
             </div>
             <div className="xl:col-span-2">
               <PartidoDonutChart data={filteredData} />
