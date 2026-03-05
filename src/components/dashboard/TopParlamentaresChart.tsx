@@ -44,7 +44,6 @@ export function TopParlamentaresChart({ data }: Props) {
       const bEstruturasCount = Object.keys(b[1]).length - 1;
       return bEstruturasCount - aEstruturasCount;
     })
-    .slice(0, 10)
     .map(([name, values]) => ({
       name,
       ...values,
@@ -57,9 +56,9 @@ export function TopParlamentaresChart({ data }: Props) {
           <BarChart3 className="h-4 w-4 text-primary" />
         </div>
         <div>
-          <h3 className="text-lg font-bold">Top 10 Vereadores</h3>
+          <h3 className="text-lg font-bold">Vereador X Alocação</h3>
           <p className="text-[12px] text-muted-foreground">
-            Por valor proposto
+            
           </p>
         </div>
       </div>
