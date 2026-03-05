@@ -427,7 +427,7 @@ export const PARTY_COLORS: Record<string, string> = {
   "PRTB": "hsl(48, 95%, 48%)",
   "Novo": "hsl(28, 100%, 50%)",
   "Republicanos": "hsl(27, 80%, 60%)",
-  "Avante": "hsl(345, 85%, 55%)",
+  "Avante": "hsla(345, 83%, 67%, 1.00)",
   "Solidariedade": "hsl(201, 95%, 14%)",
   "PDT": "hsla(196, 37%, 38%, 1.00)",
   "Agir": "hsl(185, 80%, 40%)",
