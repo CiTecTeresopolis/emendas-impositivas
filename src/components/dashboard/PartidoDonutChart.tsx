@@ -120,7 +120,7 @@ export function PartidoDonutChart({ data }: Props) {
           <PieChartIcon className="h-4 w-4 text-accent" />
         </div>
         <div>
-          <h3 className="text-lg font-bold">Legislatura</h3>
+          <h3 className="text-lg font-bold">Legislatura (2025 - 2028)</h3>
           <p className="text-[12px] text-muted-foreground">
             Passe o mouse para ver os valores
           </p>

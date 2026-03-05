@@ -111,8 +111,8 @@ export function AnaliseSintetica({ data }: Props) {
     // Diversificação (Quantidade de áreas/estruturas atendidas)
     const qteAreas = new Set(data.map((e) => e.estrutura)).size;
 
-    // Ticket Médio
-    const ticketMedio = data.length > 0 ? totalValor / data.length : 0;
+    // // Ticket Médio
+    // const ticketMedio = data.length > 0 ? totalValor / data.length : 0;
 
     return {
       totalValor,
@@ -127,7 +127,7 @@ export function AnaliseSintetica({ data }: Props) {
       porParlamentarIndiv,
       programaDestaque,
       qteAreas,
-      ticketMedio,
+      // ticketMedio,
     };
   }, [data]);
 
@@ -177,7 +177,7 @@ export function AnaliseSintetica({ data }: Props) {
               </p>
             </div>
 
-            <div className="space-y-1.5 col-span-2">
+            {/* <div className="space-y-1.5 col-span-2">
               <div className="flex items-center gap-2 text-primary">
                 <Receipt className="h-4 w-4" />
                 <span className="text-[11px] font-bold uppercase tracking-wider">
@@ -187,7 +187,7 @@ export function AnaliseSintetica({ data }: Props) {
               <p className="text-sm font-semibold text-foreground leading-snug">
                 {formatBRLCompact(metrics.ticketMedio)} / proposta
               </p>
-            </div>
+            </div> */}
 
             <div className="space-y-1.5 col-span-2">
               <div className="flex items-center gap-2 text-primary">
