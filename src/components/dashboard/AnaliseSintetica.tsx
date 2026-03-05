@@ -211,30 +211,6 @@ export function AnaliseSintetica({ data }: Props) {
             </p>
           </div>
 
-          <div className="py-5 space-y-3">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <User className="h-4 w-4" />
-              <span className="text-[11px] font-bold uppercase tracking-wider">
-                Líderes Individuais
-              </span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {metrics.lideresIndividuais.length > 0 ? (
-                metrics.lideresIndividuais.map((name) => (
-                  <span
-                    key={name}
-                    className="px-2.5 py-1 rounded-md bg-muted text-muted-foreground text-[11px] font-medium border border-border/50"
-                  >
-                    {name}
-                  </span>
-                ))
-              ) : (
-                <span className="text-[11px] text-muted-foreground italic">
-                  Nenhum identificado
-                </span>
-              )}
-            </div>
-          </div>
 
           <div className="py-5 space-y-3">
             <div className="flex items-center gap-2 text-muted-foreground">
@@ -293,7 +269,7 @@ export function AnaliseSintetica({ data }: Props) {
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed bg-muted/30 p-4 rounded-xl border border-border/50">
                   O painel apresenta um retrato consolidado das emendas
-                  parlamentares destinadas a Teresópolis. Organiza valores,
+                  impositivas em Teresópolis. Organiza valores,
                   autores, áreas beneficiadas e origem dos recursos, permitindo
                   identificar padrões de investimento político.
                 </p>
@@ -336,23 +312,7 @@ export function AnaliseSintetica({ data }: Props) {
                         metrics.porEstrutura[metrics.setorChave],
                       )}. Padrão de investimento prioritário no município para o ano de ${metrics.ano}.`,
                       icon: <Activity className="h-4 w-4" />,
-                    },
-                    // {
-                    //   title: "Peso das Coletivas",
-                    //   content:
-                    //     metrics.valorColetivas > 0
-                    //       ? `Emendas de bancada e comissão somam ${formatBRL(metrics.valorColetivas)}, representando fonte significativa de grandes aportes.`
-                    //       : "Não foram identificadas emendas coletivas significativas para este período.",
-                    //   icon: <Users className="h-4 w-4" />,
-                    // },
-                    {
-                      title: "Liderança Individual",
-                      content:
-                        metrics.lideresIndividuais.length > 0
-                          ? `${metrics.lideresIndividuais.join(", ")} lideram as proposições individuais no período selecionado.`
-                          : "Não foram identificadas proposições individuais predominantes.",
-                      icon: <User className="h-4 w-4" />,
-                    },
+                    }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-4 group">
                       <div className="h-10 w-10 shrink-0 rounded-xl bg-muted border border-border flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-colors font-bold text-sm">

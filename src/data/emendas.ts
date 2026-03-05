@@ -12,7 +12,7 @@ export interface Emenda {
 }
 
 export const emendasData: Emenda[] = [
- {
+  {
     "origem": "Emenda Impositiva",
     "parlamentar": "Luciano Santos",
     "partido": "DC",
@@ -390,7 +390,7 @@ export const emendasData: Emenda[] = [
     "partido": "União Brasil",
     "programa": "Construção do Hospital Municipal",
     "proposta": "021/2025",
-    "valorProposto": 481665.9,
+    "valorProposto": 481664.9,
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
@@ -419,17 +419,18 @@ export const formatBRLCompact = (value: number): string => {
 };
 
 export const PARTY_COLORS: Record<string, string> = {
-  PL: "hsl(199, 72%, 44%)",
-  PSD: "hsl(45, 100%, 50%)",
-  PP: "hsl(27, 97%, 49%)",
-  PDT: "hsl(196, 53%, 55%)",
-  SOLIDARIEDADE: "hsl(201, 95%, 14%)",
-  UNIAO: "hsl(162, 60%, 40%)",
-  BANCADA: "hsl(201, 30%, 40%)",
-  REPUBLICANOS: "hsl(27, 80%, 60%)",
-  PODEMOS: "hsl(199, 50%, 60%)",
-  MDB: "hsl(45, 80%, 65%)",
-  "PC DO B": "hsl(0, 60%, 50%)",
+  "DC": "hsl(215, 70%, 45%)",
+  "União Brasil": "hsl(162, 60%, 40%)",
+  "PL": "hsl(199, 72%, 44%)",
+  "PP": "hsla(0, 97%, 49%, 1.00)",
+  "PMB": "hsl(145, 60%, 35%)",
+  "PRTB": "hsl(48, 95%, 48%)",
+  "Novo": "hsl(28, 100%, 50%)",
+  "Republicanos": "hsl(27, 80%, 60%)",
+  "Avante": "hsl(345, 85%, 55%)",
+  "Solidariedade": "hsl(201, 95%, 14%)",
+  "PDT": "hsla(196, 37%, 38%, 1.00)",
+  "Agir": "hsl(185, 80%, 40%)",
 };
 
 export const CHART_COLORS = [

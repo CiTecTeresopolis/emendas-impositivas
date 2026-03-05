@@ -7,7 +7,7 @@ import {
   Sector,
   Legend,
 } from "recharts";
-import { Emenda, formatBRL, CHART_COLORS } from "@/data/emendas";
+import { Emenda, formatBRL, CHART_COLORS, PARTY_COLORS } from "@/data/emendas";
 import { PieChartIcon } from "lucide-react";
 
 // 1. Definição da interface para os dados do gráfico
@@ -87,7 +87,7 @@ export function PartidoDonutChart({ data }: Props) {
 
   const chartData: ChartDataItem[] = Object.entries(partidoTotals)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 5)
+    // .slice(0, 5)
     .map(([name, value]) => ({ name, value }));
 
   // 3. Tipagem dos eventos de Mouse
@@ -100,6 +100,10 @@ export function PartidoDonutChart({ data }: Props) {
     setActiveIndex(undefined);
   };
 
+  console.log("teste1: ", chartData[0].name)
+  console.log("teste2: ", PARTY_COLORS[chartData[0].name])
+
+
   return (
     <div className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden h-full">
       <div className="px-6 pt-5 pb-2 flex items-center gap-2.5">
@@ -107,12 +111,13 @@ export function PartidoDonutChart({ data }: Props) {
           <PieChartIcon className="h-4 w-4 text-accent" />
         </div>
         <div>
-          <h3 className="text-lg font-bold">Top 5 Partidos</h3>
+          <h3 className="text-lg font-bold">Recurso por Partido</h3>
           <p className="text-[12px] text-muted-foreground">
             Passe o mouse para ver os valores
           </p>
         </div>
       </div>
+
 
       <div className="px-4 pb-5">
         <div className="h-[400px] relative">
@@ -139,7 +144,7 @@ export function PartidoDonutChart({ data }: Props) {
                 {chartData.map((_, i) => (
                   <Cell
                     key={`cell-${i}`}
-                    fill={CHART_COLORS[i % CHART_COLORS.length]}
+                    fill={PARTY_COLORS[chartData[i].name]}
                     className="outline-none"
                   />
                 ))}
