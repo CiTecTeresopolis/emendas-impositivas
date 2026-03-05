@@ -53,14 +53,14 @@ export function KPICards({ data }: KPICardsProps) {
       color: "from-[hsl(199,72%,44%)] to-[hsl(199,72%,56%)]",
       iconBg: "bg-[hsl(199,72%,44%)]",
     },
-    {
-      title: "Maior Proposição",
-      value: topPartidos.length > 0 ? topPartidos.map((p) => p[0]).join(", ") : "-",
-      icon: Users,
-      sub: topPartidos.length > 0 ? formatBRL(maxPartidoValue) : "",
-      color: "from-[hsl(199,72%,44%)] to-[hsl(199,72%,56%)]",
-      iconBg: "bg-[hsl(199,72%,44%)]",
-    },
+    // {
+    //   title: "Maior Proposição",
+    //   value: topPartidos.length > 0 ? topPartidos.map((p) => p[0]).join(", ") : "-",
+    //   icon: Users,
+    //   sub: topPartidos.length > 0 ? formatBRL(maxPartidoValue) : "",
+    //   color: "from-[hsl(199,72%,44%)] to-[hsl(199,72%,56%)]",
+    //   iconBg: "bg-[hsl(199,72%,44%)]",
+    // },
     {
       title: "Maior Recurso Proposto",
       value: topEstrutura?.[0] || "-",
@@ -72,7 +72,7 @@ export function KPICards({ data }: KPICardsProps) {
   ];
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 xl:grid-cols-3">
       {cards.map((card, i) => (
         <div
           key={card.title}

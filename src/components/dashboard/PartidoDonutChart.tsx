@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Pie,
   Cell,
@@ -79,16 +79,26 @@ const renderActiveShape = (props: ActiveShapeProps) => {
 
 export function PartidoDonutChart({ data }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | undefined>(undefined);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const partidoTotals = data.reduce<Record<string, number>>((acc, e) => {
-    acc[e.partido] = (acc[e.partido] || 0) + e.valorProposto;
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const partidoParlamentares = data.reduce<Record<string, Set<string>>>((acc, e) => {
+    if (!acc[e.partido]) {
+      acc[e.partido] = new Set();
+    }
+    acc[e.partido].add(e.parlamentar);
     return acc;
   }, {});
 
-  const chartData: ChartDataItem[] = Object.entries(partidoTotals)
-    .sort((a, b) => b[1] - a[1])
-    // .slice(0, 5)
-    .map(([name, value]) => ({ name, value }));
+  const chartData: ChartDataItem[] = Object.entries(partidoParlamentares)
+    .map(([name, set]) => ({ name, value: set.size }))
+    .sort((a, b) => b.value - a.value);
 
   // 3. Tipagem dos eventos de Mouse
   // O Recharts passa o objeto de dados como primeiro argumento e o índice como segundo
@@ -100,8 +110,7 @@ export function PartidoDonutChart({ data }: Props) {
     setActiveIndex(undefined);
   };
 
-  console.log("teste1: ", chartData[0].name)
-  console.log("teste2: ", PARTY_COLORS[chartData[0].name])
+
 
 
   return (
@@ -111,7 +120,7 @@ export function PartidoDonutChart({ data }: Props) {
           <PieChartIcon className="h-4 w-4 text-accent" />
         </div>
         <div>
-          <h3 className="text-lg font-bold">Recurso por Partido</h3>
+          <h3 className="text-lg font-bold">Legislatura</h3>
           <p className="text-[12px] text-muted-foreground">
             Passe o mouse para ver os valores
           </p>
@@ -120,7 +129,7 @@ export function PartidoDonutChart({ data }: Props) {
 
 
       <div className="px-4 pb-5">
-        <div className="h-[400px] relative">
+        <div className={isMobile ? "h-[400px] relative" : "h-[400px] relative"}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -129,15 +138,15 @@ export function PartidoDonutChart({ data }: Props) {
                 data={chartData}
                 cx="50%"
                 cy="42%"
-                innerRadius={75}
-                outerRadius={120}
+                innerRadius={isMobile ? 60 : 75}
+                outerRadius={isMobile ? 90 : 120}
                 paddingAngle={4}
                 dataKey="value"
                 onMouseEnter={onPieEnter}
                 onMouseLeave={onPieLeave}
                 labelLine={false}
-                label={({ percent }: { percent: number }) =>
-                  `${(percent * 100).toFixed(0)}%`
+                label={({ value }: { value: number }) =>
+                  `${value}`
                 }
                 stroke="none"
               >
@@ -160,7 +169,7 @@ export function PartidoDonutChart({ data }: Props) {
           {activeIndex !== undefined && (
             <div className="absolute bottom-16 left-1/2 -translate-x-1/2 pointer-events-none text-center bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full border border-border">
               <p className="text-sm font-bold">
-                {formatBRL(chartData[activeIndex].value)}
+                {`${chartData[activeIndex].value} ${chartData[activeIndex].value === 1 ? 'Vereador' : 'Vereadores'}`}
               </p>
             </div>
           )}

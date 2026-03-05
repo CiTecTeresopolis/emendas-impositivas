@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   PieChart,
   Pie,
@@ -80,6 +80,14 @@ const renderActiveShape = (props: ActiveShapeProps) => {
 
 export function EstruturaChart({ data }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | undefined>(undefined);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const totals = data.reduce<Record<string, number>>((acc, e) => {
     acc[e.estrutura] = (acc[e.estrutura] || 0) + e.valorProposto;
@@ -105,7 +113,7 @@ export function EstruturaChart({ data }: Props) {
       </div>
 
       <div className="px-4 pb-5">
-        <div className="h-[400px] relative">
+        <div className={isMobile ? "h-[300px] relative" : "h-[400px] relative"}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -114,8 +122,8 @@ export function EstruturaChart({ data }: Props) {
                 data={chartData}
                 cx="50%"
                 cy="45%"
-                innerRadius={75}
-                outerRadius={120}
+                innerRadius={isMobile ? 60 : 75}
+                outerRadius={isMobile ? 90 : 120}
                 paddingAngle={4}
                 dataKey="value"
                 onMouseEnter={(_, index) => setActiveIndex(index)}

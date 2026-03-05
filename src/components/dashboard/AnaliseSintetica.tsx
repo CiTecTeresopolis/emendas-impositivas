@@ -15,13 +15,16 @@ import {
   ClipboardList,
 } from "lucide-react";
 import { Emenda, formatBRL, formatBRLCompact } from "@/data/emendas";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Props {
   data: Emenda[];
 }
 
 export function AnaliseSintetica({ data }: Props) {
+  const isMobile = useIsMobile();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const metrics = useMemo(() => {
     if (data.length === 0) return null;
@@ -140,7 +143,7 @@ export function AnaliseSintetica({ data }: Props) {
               <ChartColumnIncreasing className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <h3 className="text-lg font-bold leading-none">
+              <h3 className={`text-lg font-bold leading-none ${isMobile ? "text-sm" : "text-lg"}`}>
                 Análise Sintética
               </h3>
               <p className="text-xs text-muted-foreground mt-1.5 italic">
@@ -174,7 +177,7 @@ export function AnaliseSintetica({ data }: Props) {
               </p>
             </div>
 
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 col-span-2">
               <div className="flex items-center gap-2 text-primary">
                 <Receipt className="h-4 w-4" />
                 <span className="text-[11px] font-bold uppercase tracking-wider">
@@ -216,12 +219,22 @@ export function AnaliseSintetica({ data }: Props) {
             <div className="flex items-center gap-2 text-muted-foreground">
               <Landmark className="h-4 w-4" />
               <span className="text-[11px] font-bold uppercase tracking-wider">
-                Partidos com Maior Aporte
+                Top 3 Estruturas
               </span>
             </div>
+
             <p className="text-sm font-medium text-foreground/80">
-              {metrics.topPartidos.slice(0, 3).join(", ")}.
+              {Object.entries(metrics.porEstrutura)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 3)
+                .map(([estrutura], index, array) => (
+                  <span key={estrutura}>
+                    {estrutura}
+                    {index < array.length - 1 ? ", " : "."}
+                  </span>
+                ))}
             </p>
+
           </div>
         </div>
 

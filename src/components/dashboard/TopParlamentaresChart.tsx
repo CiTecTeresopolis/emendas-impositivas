@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   BarChart,
   Bar,
@@ -21,6 +22,15 @@ interface Props {
 }
 
 export function TopParlamentaresChart({ data }: Props) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const estruturas = Array.from(new Set(data.map((e) => e.estrutura)));
 
   const parlamentarData = data.reduce<
@@ -49,6 +59,9 @@ export function TopParlamentaresChart({ data }: Props) {
       ...values,
     }));
 
+  // No mobile, exibimos na horizontal. Nas Recharts, isso significa layout="vertical".
+  const layout = isMobile ? "vertical" : "horizontal";
+
   return (
     <div className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden h-full">
       <div className="px-6 pt-5 pb-2 flex items-center gap-2.5">
@@ -58,37 +71,61 @@ export function TopParlamentaresChart({ data }: Props) {
         <div>
           <h3 className="text-lg font-bold">Vereador X Alocação</h3>
           <p className="text-[12px] text-muted-foreground">
-            
+
           </p>
         </div>
       </div>
       <div className="px-4 pb-5">
-        <div className="h-[480px]">
+        <div className={isMobile ? "h-[400px]" : "h-[480px]"}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={chartData}
-              margin={{ left: 10, right: 10, top: 40, bottom: 60 }}
+              layout={layout}
+              margin={
+                isMobile
+                  ? { left: 0, right: 30, top: 20, bottom: 20 }
+                  : { left: 10, right: 10, top: 40, bottom: 60 }
+              }
             >
-              <XAxis
-                type="category"
-                dataKey="name"
-                tick={{ fontSize: 14, fill: "hsl(201,95%,14%)" }}
-                angle={-45}
-                textAnchor="end"
-                dx={-8}
-                dy={8}
-                height={80}
-                axisLine={false}
-                tickLine={false}
-              />
-              <YAxis
-                type="number"
-                tickFormatter={(v) => formatBRLCompact(v)}
-                width={80}
-                tick={{ fontSize: 14, fill: "hsl(201,20%,46%)" }}
-                axisLine={false}
-                tickLine={false}
-              />
+              {layout === "horizontal" ? (
+                <>
+                  <XAxis
+                    type="category"
+                    dataKey="name"
+                    tick={{ fontSize: 13, fill: "hsl(201,95%,14%)" }}
+                    angle={-45}
+                    textAnchor="end"
+                    dx={-8}
+                    dy={8}
+                    height={80}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    type="number"
+                    tickFormatter={(v) => formatBRLCompact(v)}
+                    width={80}
+                    tick={{ fontSize: 12, fill: "hsl(201,20%,46%)" }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                </>
+              ) : (
+                <>
+                  <XAxis
+                    type="number"
+                    hide
+                  />
+                  <YAxis
+                    type="category"
+                    dataKey="name"
+                    width={100}
+                    tick={{ fontSize: 10, fill: "hsl(201,95%,14%)" }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                </>
+              )}
               <Tooltip
                 formatter={(value: number) => formatBRL(value)}
                 contentStyle={{
@@ -116,8 +153,9 @@ export function TopParlamentaresChart({ data }: Props) {
                   {i === estruturas.length - 1 && (
                     <LabelList
                       dataKey="total"
-                      position="top"
+                      position={isMobile ? "right" : "top"}
                       formatter={(value: number) => formatBRLCompact(value)}
+                      style={{ fontSize: isMobile ? 10 : 12, fill: "hsl(201,20%,46%)" }}
                     />
                   )}
                 </Bar>
