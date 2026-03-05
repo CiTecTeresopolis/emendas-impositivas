@@ -76,7 +76,7 @@ export function TopParlamentaresChart({ data }: Props) {
         </div>
       </div>
       <div className="px-4 pb-5">
-        <div className={isMobile ? "h-[400px]" : "h-[480px]"}>
+        <div className={isMobile ? "h-[500px]" : "h-[480px]"}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={chartData}
