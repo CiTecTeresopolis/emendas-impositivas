@@ -16,7 +16,8 @@ export function KPICards({ data }: KPICardsProps) {
   const totalEmendas = data.length;
 
   const partidoTotals = data.reduce<Record<string, number>>((acc, e) => {
-    acc[e.partido] = Math.round(((acc[e.partido] || 0) + e.valorProposto) * 100) / 100;
+    acc[e.partido] =
+      Math.round(((acc[e.partido] || 0) + e.valorProposto) * 100) / 100;
     return acc;
   }, {});
   const sortedPartidos = Object.entries(partidoTotals).sort(
@@ -26,7 +27,6 @@ export function KPICards({ data }: KPICardsProps) {
   const topPartidos = sortedPartidos.filter((p) => p[1] === maxPartidoValue);
 
   console.log("sortedPartidos", sortedPartidos);
-
 
   const estruturaTotals = data.reduce<Record<string, number>>((acc, e) => {
     acc[e.estrutura] = (acc[e.estrutura] || 0) + e.valorProposto;
@@ -57,10 +57,13 @@ export function KPICards({ data }: KPICardsProps) {
     {
       title: "Teto da Emenda",
       value: formatBRL(
-        Math.round((totalValor / (new Set(data.map((e) => e.parlamentar)).size || 1)) * 100) / 100,
+        Math.round(
+          (totalValor / (new Set(data.map((e) => e.parlamentar)).size || 1)) *
+            100,
+        ) / 100,
       ),
       icon: Users,
-      sub: `Rateio entre ${new Set(data.map((e) => e.parlamentar)).size} parlamentares`,
+      sub: `Teto da emenda para cada um dos ${new Set(data.map((e) => e.parlamentar)).size} parlamentares`,
       color: "from-[hsl(199,72%,44%)] to-[hsl(199,72%,56%)]",
       iconBg: "bg-[hsl(199,72%,44%)]",
     },

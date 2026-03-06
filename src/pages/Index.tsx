@@ -58,6 +58,7 @@ const Index = () => {
       "anoVigencia",
       "objeto",
       "estrutura",
+      "setor",
     ];
     const rows = filteredData.map((e) => [
       e.origem,
@@ -70,6 +71,7 @@ const Index = () => {
       e.anoVigencia,
       e.objeto,
       e.estrutura,
+      e.setor,
     ]);
     const csv = [headers.join(";"), ...rows.map((r) => r.join(";"))].join("\n");
     const blob = new Blob(["\uFEFF" + csv], {
@@ -170,6 +172,7 @@ const Index = () => {
             <div className="xl:col-span-3">
               <EstruturaChart data={filteredData} />
             </div>
+
             <div className="xl:col-span-2">
               <AnaliseSintetica data={filteredData} />
             </div>

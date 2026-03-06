@@ -43,9 +43,34 @@ export function AnaliseSintetica({ data }: Props) {
     const setorChave = Object.entries(porEstrutura).sort(
       (a, b) => b[1] - a[1],
     )[0];
-    const setorChavePercent = setorChave
-      ? Math.round((setorChave[1] / totalValor) * 100)
-      : 0;
+
+    // Calcula as porcentagens de todas as estruturas com o Largest Remainder Method para garantir alinhamento com o gráfico
+    let setorChavePercent = "0.0";
+    if (totalValor > 0 && setorChave) {
+      const estruturasNames = Object.keys(porEstrutura);
+      const exactPercents = estruturasNames.map(
+        (name) => (porEstrutura[name] / totalValor) * 100,
+      );
+      const floorPercents = exactPercents.map((p) => Math.floor(p * 10));
+      const remainders = exactPercents.map((p, i) => ({
+        index: i,
+        remainder: p * 10 - floorPercents[i],
+      }));
+
+      const currentSum = floorPercents.reduce((acc, val) => acc + val, 0);
+      const diff = 1000 - currentSum;
+
+      remainders.sort((a, b) => b.remainder - a.remainder);
+      for (let i = 0; i < diff && i < remainders.length; i++) {
+        floorPercents[remainders[i].index] += 1;
+      }
+
+      // Encontrar o index do setor chave
+      const chaveIndex = estruturasNames.indexOf(setorChave[0]);
+      if (chaveIndex !== -1) {
+        setorChavePercent = (floorPercents[chaveIndex] / 10).toFixed(1);
+      }
+    }
 
     // Tipologia (Coletivas vs Individuais)
     // Assumindo que "BANCADA" ou parlamentares com "Coletivas" no nome são coletivas

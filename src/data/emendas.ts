@@ -9,6 +9,7 @@ export interface Emenda {
   anoVigencia: number;
   objeto: string;
   estrutura: string;
+  setor: string;
 }
 
 export const emendasData: Emenda[] = [
@@ -22,7 +23,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -34,7 +36,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -46,7 +49,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Reforma do CEMUSA",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -58,7 +62,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -70,7 +75,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Reforma do telhado da UBS – Parque Ermitage",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -82,7 +88,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -94,7 +101,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Reforma e ampliação da UBS do Caleme",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -106,7 +114,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -118,7 +127,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Pavimentação – Servidões das Pimenteiras",
-    "estrutura": "Serviços Públicos"
+    "estrutura": "Serviços Públicos",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -130,7 +140,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -142,7 +153,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -154,7 +166,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -166,7 +179,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -178,7 +192,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -190,7 +205,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção da Clínica da Mulher",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -202,7 +218,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -214,7 +231,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Modernização da infraestrutura educacional",
-    "estrutura": "Educação"
+    "estrutura": "Educação",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -226,7 +244,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Fortalecimento dos órgãos de controle social",
-    "estrutura": "Educação"
+    "estrutura": "Educação",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -238,7 +257,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Companhia de Cães – GCM K9",
-    "estrutura": "Ordem Pública e Mobilidade"
+    "estrutura": "Ordem Pública e Mobilidade",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -250,7 +270,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "MAC – APAE",
-    "estrutura": "APAE Teresópolis"
+    "estrutura": "APAE Teresópolis",
+    "setor": "Privado"
   },
   {
     "origem": "Emenda Impositiva",
@@ -262,7 +283,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "MAC – Bem Me Quer",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -274,7 +296,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -286,7 +309,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -298,7 +322,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -310,7 +335,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Cobertura da Quadra de Esportes",
-    "estrutura": "Obras e Serviços Públicos"
+    "estrutura": "Obras e Serviços Públicos",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -322,7 +348,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Cobertura da Quadra de Esportes",
-    "estrutura": "Obras e Serviços Públicos"
+    "estrutura": "Obras e Serviços Públicos",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -334,7 +361,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Capacitação do Corpo Docente",
-    "estrutura": "Educação"
+    "estrutura": "Educação",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -346,7 +374,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -358,7 +387,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Reforma de UBS",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -370,7 +400,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -382,7 +413,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   },
   {
     "origem": "Emenda Impositiva",
@@ -394,7 +426,8 @@ export const emendasData: Emenda[] = [
     "contrapartida": 0,
     "anoVigencia": 2026,
     "objeto": "Construção do Hospital Municipal",
-    "estrutura": "Saúde"
+    "estrutura": "Saúde",
+    "setor": "Público"
   }
 ];
 
@@ -444,4 +477,21 @@ export const CHART_COLORS = [
   "hsl(45, 80%, 65%)",
   "hsl(162, 60%, 40%)",
   "hsl(27, 80%, 60%)",
+];
+
+export const PUBLIC_SECTOR_COLORS = [
+  "hsl(209, 99%, 27%)", // Azul Escuro
+  "hsl(210, 100%, 50%)", // Azul
+  "hsl(210, 91%, 63%)", // Azul Pastel Escuro
+  "hsl(210, 100%, 75%)", // Azul Pastel
+  "hsl(208, 30%, 74%)", // Azul Gelo
+];
+
+export const PRIVATE_SECTOR_COLORS = [
+  "hsl(0, 100%, 35%)", // Vermelho Escuro
+  "hsl(0, 100%, 45%)", // Vermelho
+  "hsl(0, 100%, 55%)", // Vermelho Claro
+  "hsl(0, 100%, 65%)", // Vermelho Pastel Escuro
+  "hsl(0, 100%, 75%)", // Vermelho Pastel
+  "hsl(0, 100%, 85%)", // Vermelho Vivo Claro
 ];

@@ -21,7 +21,8 @@ type SortKey =
   | "partido"
   | "valorProposto"
   | "estrutura"
-  | "programa";
+  | "programa"
+  | "setor";
 
 export function EmendasTable({ data }: Props) {
   const [search, setSearch] = useState("");
@@ -105,6 +106,7 @@ export function EmendasTable({ data }: Props) {
               <SortHeader label="Valor" field="valorProposto" />
               <SortHeader label="Estrutura" field="estrutura" />
               <SortHeader label="Programa" field="programa" />
+              <SortHeader label="Setor" field="setor" />
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -141,6 +143,9 @@ export function EmendasTable({ data }: Props) {
                 </TableCell>
                 <TableCell className="max-w-[200px] truncate text-muted-foreground text-xs py-3.5">
                   {e.programa}
+                </TableCell>
+                <TableCell className="max-w-[200px] truncate text-muted-foreground text-xs py-3.5">
+                  {e.setor}
                 </TableCell>
               </TableRow>
             ))}
