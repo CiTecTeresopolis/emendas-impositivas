@@ -208,7 +208,7 @@ export function EstruturaChart({ data }: Props) {
             <Layers className="h-4 w-4 text-destructive" />
           </div>
           <div>
-            <h3 className="text-lg font-bold">Valor por Área</h3>
+            <h3 className="text-lg font-bold">Distribuição por Área</h3>
             <p className="text-[12px] text-muted-foreground">
               Distribuição por estrutura
             </p>
